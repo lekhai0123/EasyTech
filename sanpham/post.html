@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EasyTech - Tin công nghệ</title>
+    <meta name="author" content="EasyTech" />
+    <meta name="description" content="EasyTech là blog công nghệ uy tín, nơi bạn có thể tìm thấy những đánh giá chi tiết, thông tin mới nhất về các sản phẩm công nghệ và câu hỏi đáp từ các chuyên gia. Cập nhật tin tức và đánh giá sản phẩm công nghệ dễ hiểu và dễ tiếp cận." />
+    <meta name="keywords" content="EasyTech, đánh giá sản phẩm công nghệ, thông tin công nghệ, blog công nghệ, sản phẩm công nghệ, câu hỏi đáp công nghệ, KOL công nghệ, đánh giá sản phẩm thực tế, công nghệ dễ hiểu, sản phẩm công nghệ mới" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Tailwind -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Karla:400,700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+      .font-family-karla {
+        font-family: karla;
+      }
+      .font-family-open-sans {
+        font-family: "Open Sans", sans-serif;
+        font-variation-settings: "wdth" 100;
+      }
+      .font-family-inter {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+
+    <!-- AlpineJS -->
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <!-- Font Awesome -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+      integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="bg-white font-family-open-sans">
+    <!-- Top Bar Nav -->
+    <nav class="w-full py-4 bg-blue-800 shadow">
+      <div
+        class="w-full container mx-auto flex flex-wrap items-center justify-between"
+      >
+        <nav>
+          <ul
+            class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline"
+          >
+            <li>
+              <a class="hover:text-gray-200 hover:underline px-4" href="#"
+                >Liên hệ</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-gray-200 hover:underline px-4" href="#"
+                >Về chúng tôi</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <div class="flex items-center text-lg no-underline text-white pr-6">
+          <a class="" href="#">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a class="pl-6" href="#">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a class="pl-6" href="#">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a class="pl-6" href="#">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Text Header -->
+    <header class="w-full container mx-auto">
+      <div class="flex flex-col items-center py-12">
+        <a
+          class="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl"
+          href="#"
+        >
+          Easy Tech
+        </a>
+        <p class="text-lg text-gray-600">Khám phá công nghệ trong tầm tay</p>
+      </div>
+    </header>
+
+    <!-- Topic Nav -->
+    <nav
+      class="w-full py-4 border-t border-b bg-gray-100"
+      x-data="{ open: false }"
+    >
+      <div class="block sm:hidden">
+        <a
+          href="#"
+          class="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center"
+          @click="open = !open"
+        >
+          Topics
+          <i
+            :class="open ? 'fa-chevron-down': 'fa-chevron-up'"
+            class="fas ml-2"
+          ></i>
+        </a>
+      </div>
+      <div
+        :class="open ? 'block': 'hidden'"
+        class="w-full flex-grow sm:flex sm:items-center sm:w-auto"
+      >
+        <div
+          class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2"
+        >
+          <a href="blog.html" class="hover:bg-gray-400 rounded py-2 px-4 mx-2"
+            >Tin tức công nghệ</a
+          >
+          <a
+            href="../sanpham/blog.html"
+            class="hover:bg-gray-400 rounded py-2 px-4 mx-2"
+            >Đánh giá sản phẩm</a
+          >
+          <a
+            href="../tuvan/blog.html"
+            class="hover:bg-gray-400 rounded py-2 px-4 mx-2"
+            >Tư vấn</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mx-auto flex flex-wrap py-6">
+      <!-- Post Section -->
+      <section class="w-full md:w-2/3 flex flex-col items-center px-3">
+        <article class="flex flex-col shadow my-4">
+          <div class="bg-white flex flex-col justify-start p-6">
+            <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4"
+              >Đánh giá sản phẩm</a
+            >
+            <a href="#" class="text-3xl font-bold hover:text-gray-700 pb-4"
+              >Đánh giá chi tiết iPhone 16: Một mẫu iPhone rất đáng mua nếu bạn
+              chấp nhận 3 điều này!</a
+            >
+            <p href="#" class="text-sm pb-8">
+              By
+              <a href="#" class="font-semibold hover:text-gray-800">Lê Khải</a>,
+              Đăng vào ngày 26 tháng 11 năm 2024
+            </p>
+            <p class="pb-3">
+              Trong 4 mẫu iPhone năm nay, mẫu iPhone 16 và iPhone 16 Plus dành
+              được sự quan tâm từ nhiều người dùng nhờ sự thay đổi về thiết kế
+              so với thế hệ tiền nhiệm. Trong bài viết này, EasyTech sẽ gửi đến
+              các bạn bài đánh giá chi tiết mẫu sản phẩm Apple iPhone 16 - dự
+              đoán sẽ trở thành mẫu iPhone bán chạy nhất.
+            </p>
+            <p class="pb-3">
+              Vậy là những chiếc iPhone 16 đầu tiên đã được giao đến người dùng
+              tại thị trường Việt Nam. Không chỉ mang đến ngoại hình khác lạ nhờ
+              sự thay đổi của cụm camera sau, Apple iPhone 16 cũng được nâng cấp
+              về hiệu năng thay vì dùng lại chip cũ giống như iPhone 15 (Sử dụng
+              Apple A16 Bionic tương tự iPhone 15 Pro Max). Phím bấm camera
+              control cũng được xem là sự thay đổi mới lạ trên dòng sản phẩm năm
+              nay.
+            </p>
+            <h1 class="text-2xl font-bold pb-3">
+              Thiết kế mới, hài lòng màu sắc đẹp
+            </h1>
+            <p class="pb-3">
+              Như đã đề cập ở phía trên, mẫu Apple iPhone 16 mang đến sự thay
+              đổi về ngoại hình nhờ cách bố trí cụm camera sau từ chéo sang dọc.
+              Cách bố trí cụm camera này làm chúng ta liên tưởng tới bố trí cụm
+              camera trên dòng Xs hay iPhone 12.
+            </p>
+            <p class="pb-3">
+              Mình đặc biệt thích màu Xanh mòng két trên iPhone 16 năm nay, một
+              màu sắc tuy không mới nhưng lạ, đủ mang tới ấn tượng và sức hút
+              với mình và khá nhiều người khác.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/thanhdat/danh-gia-pin-iphone-16/iphone-16-2.jpg"
+                alt="Đánh giá chi tiết iPhone 16: Một mẫu iPhone rất đáng mua nếu bạn chấp nhận 3 điều này!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <figcaption
+                style="font-size: 0.9rem; color: gray; margin-top: 4px"
+              >
+                Thiết kế iPhone 16 và iPhone 16 Plus
+              </figcaption>
+            </figure>
+            <p class="pb-3">
+              Ngoại trừ cụm camera và màu sắc thì form dáng thiết kế của iPhone
+              16 cũng không quá khác biệt so với iPhone 15. Vẫn là khung nhôm
+              vát phẳng cạnh viền bo cong, mặt lưng nhám cho người dùng cảm giác
+              cầm nắm sử dụng thoải mái, quen thuộc. Với kích thước màn hình chỉ
+              6.1 inches, iPhone 16 trở thành mẫu iPhone có kích thước nhỏ gọn
+              nhất trong 4 mẫu iPhone năm nay. Nó có kích thước tổng thể là
+              147.6 x 71.6 x 7.8 mm, nặng 170g.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/thanhdat/danh-gia-pin-iphone-16/tren-tay-iphone-16-9.jpg"
+                alt="Đánh giá chi tiết iPhone 16: Một mẫu iPhone rất đáng mua nếu bạn chấp nhận 3 điều này!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+            </figure>
+            <p class="pb-3">
+              Nếu như trên dòng iPhone 15 series, nút Action chỉ có trên hai
+              phiên bản Pro và Pro Max thì năm nay, nút Camera control đã được
+              Apple trang bị trên tất cả các phiên bản iPhone 16. iPhone 16 năm
+              nay đã không còn cần gạt bật/tắt chế độ im lặng nữa mà được thay
+              thế bằng nút Action button như trên dòng Pro và Pro Max.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/thanhdat/danh-gia-pin-iphone-16/tren-tay-iphone-16-8.jpg"
+                alt="Đánh giá chi tiết iPhone 16: Một mẫu iPhone rất đáng mua nếu bạn chấp nhận 3 điều này!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+            </figure>
+            <p class="pb-3">
+              Nhìn chung, Apple iPhone 16 vẫn mang trên mình những nét đặc trưng
+              như thiết kế nhỏ gọn, cầm nắm thoải mái. Sự thay đổi về cách bố
+              trí cụm camera sau cũng như nút camera control góp phần tạo nên sự
+              mới mẻ. Khuyến khích người dùng iPhone đời cũ nâng cấp lên dòng
+              iPhone 16 năm nay.
+            </p>
+            <h1 class="text-2xl font-bold pb-3">
+              Màn hình đủ dùng, vẫn chưa có tần số quét cao
+            </h1>
+            <p class="pb-3">
+              Việc Apple nâng cấp kích thước màn hình từ 6.1 inches lên 6.3
+              inches trên Apple iPhone 16 Pro đã biến iPhone 16 trở thành mẫu
+              iPhone có kích thước màn hình nhỏ nhất trong 4 mẫu iPhone 16
+              series. Sản phẩm được trang bị màn hình Super Retina XDR với tấm
+              nền OLED độ phân giải 1,179 x 2,556 pixels mang đến độ giân giải
+              sắc nét. Bên cạnh đó, iPhone 16 còn hỗ trợ chuẩn HDR 10 và công
+              nghệ Dolby Vision, mật độ điểm ảnh 460 ppi mang đến trải nghiệm
+              xem phim, chơi game, giải trí với màu sắc đẹp mắt.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/thanhdat/danh-gia-pin-iphone-16/tren-tay-iphone-16-23.jpg"
+                alt="Đánh giá chi tiết iPhone 16: Một mẫu iPhone rất đáng mua nếu bạn chấp nhận 3 điều này!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+            </figure>
+            <p class="pb-3">
+              Apple iPhone 16 có độ sáng màn hình tối đa lên đến 2,000 nits giúp
+              mang đến khả năng hiển thị dưới các điều kiện ánh sáng, môi trường
+              khác nhau. Máy vẫn có Dynamic Island vô cùng quen thuộc cùng với
+              tần số quét màn hình vẫn không đổi, vẫn là 60Hz giống thế hệ tiền
+              nhiệm. Khi mà hầu hết các sản phẩm đối thủ của nó trong tầm giá
+              này đều có tần số quét màn hình 120Hz.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/thanhdat/danh-gia-pin-iphone-16/tren-tay-iphone-16-20.jpg"
+                alt="Đánh giá chi tiết iPhone 16: Một mẫu iPhone rất đáng mua nếu bạn chấp nhận 3 điều này!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+            </figure>
+            <p class="pb-3">
+              Thực tế trong quá trình sử dụng, nếu như bạn nâng cấp từ những đời
+              iPhone cũ hơn như iPhone 11, iPhone 12 hay iPhone 13, hay nói cách
+              khác nếu như bạn chưa từng dùng qua những mẫu điện thoại có tần số
+              quét cao. Gần như bạn sẽ không thể ra sự khác biệt giữa màn hình
+              iPhone 16 và những mẫu iPhone cũ trước đó. Bởi xét về các thao tác
+              vuốt chạm, Apple vẫn đang làm rất tốt trong việc tối ưu phần cứng
+              lần phần mềm. Các hiệu ứng chuyển cảnh vẫn rất mượt mà, đủ để đáp
+              ứng các nhu cầu sử dụng hàng ngày của người dùng.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/thanhdat/danh-gia-pin-iphone-16/tren-tay-iphone-16-12.jpg"
+                alt="Đánh giá chi tiết iPhone 16: Một mẫu iPhone rất đáng mua nếu bạn chấp nhận 3 điều này!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+            </figure>
+            <p class="pb-3">
+              Bỏ qua các vấn đề về tần số quét màn hình thì khả năng hiển thị
+              trên iPhone 16 không có điểm nào để phàn nàn. Độ sáng màn hình
+              cao, màu sắc hiển thị trung thực kết hợp cùng những công nghệ như
+              hỗ trợ HDR,..vv sẽ làm hài lòng nhóm người dùng trong các nhu cầu
+              xem phim, giải trí.
+            </p>
+            <h1 class="text-2xl font-bold pb-3">
+              Hiệu năng tốt, không còn cảnh dùng chip cũ
+            </h1>
+            <p class="pb-3">
+              Dòng iPhone 16 năm nay được Apple phân cấp rõ rệt thông qua vi xử
+              lý: Apple A18 (Trên dòng thường và dòng Plus) - Apple A18 Pro
+              (Trang bị trên dòng Pro và Pro Max). Cả hai vi xử lý này đều được
+              sản xuất trên tiến trình 3nm tiên tiến, cung cấp hiệu năng vô cùng
+              mạnh mẽ. Những trải nghiệm ban đầu cho thấy iPhone 16 cho hiệu
+              năng tốt hơn và nhiệt độ mát mẻ hơn khá nhiều so với iPhone 15. Đi
+              kèm với dung lượng RAM 8GB và bộ nhớ trong từ 128GB.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/thanhdat/danh-gia-pin-iphone-16/tren-tay-iphone-16-26.jpg"
+                alt="Đánh giá chi tiết iPhone 16: Một mẫu iPhone rất đáng mua nếu bạn chấp nhận 3 điều này!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+            </figure>
+            <p class="pb-3">
+              Với bài kiểm tra hiệu năng Antutu, Apple iPhone 16 đạt được số
+              điểm 1,538,831. Với ứng dụng chấm điểm hiệu năng Geekbench 6, máy
+              đạt được 3,106 điểm số đơn nhân và 7,595 điểm đa nhân. Thực tế xét
+              về điểm số, Apple A18 trên iPhone 16 vẫn chưa phải là con chip có
+              điểm số hiệu năng cao nhất. Thế nhưng trong quá trình sử dụng thực
+              tế và khả năng ổn định về lâu dài, vi xử lý Apple A18 này vẫn đủ
+              sức để khiến các đối thủ của nó phải dè chừng.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/thanhdat/danh-gia-pin-iphone-16/tren-tay-iphone-16-21.jpg"
+                alt="Đánh giá chi tiết iPhone 16: Một mẫu iPhone rất đáng mua nếu bạn chấp nhận 3 điều này!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+            </figure>
+            <p class="pb-3">
+              Trong suốt quá trình sử dụng chiếc iPhone 16, chưa bao giờ những
+              hiện tượng giật lag xảy ra trong những tác vụ hằng ngày. Đặc biệt,
+              nhiệt độ toả ra từ thiết bị chưa bao giờ khiến mình cảm thấy khó
+              chịu. Kể cả các tác vụ chơi game như Liên Quân Mobile, PUBG Mobile
+              hay thậm chí Genshin Impact. Mọi thứ gần như không có điểm nào để
+              phàn nàn về hiệu năng trên Apple iPhone 16.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/thanhdat/danh-gia-pin-iphone-16/tren-tay-iphone-16-25.jpg"
+                alt="Đánh giá chi tiết iPhone 16: Một mẫu iPhone rất đáng mua nếu bạn chấp nhận 3 điều này!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+            </figure>
+            <p class="pb-3">
+              Thậm chí trong quá trình chơi game, mình cảm nhận được nhiệt độ
+              toả ra từ iPhone 16 mát hơn so với iPhone 15 Pro Max. Nguyên nhân
+              có thể đến từ tiến trình 3nm thế hệ mới trên Apple A18, các bóng
+              bán dẫn trên chipset mới được đặt gần nhau hơn. Vì vậy điện năng
+              được truyền tải cũng được tiết kiệm hơn, giúp nhiệt năng toả ra ít
+              hơn và thời lượng pin cũng trâu hơn.
+            </p>
+            <h1 class="text-2xl font-bold pb-3">
+              Khả năng quay - chụp và nút điều khiển camera trên iPhone 16
+            </h1>
+            <p class="pb-3">
+              Xét về thông số camera trên iPhone 16, hệ thống ống kính gần như
+              không có sự khác biệt nào ngoại trừ cách bố trí từ chéo (trên
+              iPhone 15) sang dọc. Máy có camera chính độ phân giải 48MP f/1.6,
+              26mm. Phần nâng cấp nhẹ được thể hiển ở camera góc siêu rộng khi
+              Apple mở rộng khẩu độ của camera siêu rộng trên iPhone 16 là f/2.2
+              so với khẩu độ f/2.4 trên iPhone 15. Về tính năng thì Apple cung
+              cấp khả năng chụp hình macro và khả năng chụp hình để có thể xem
+              trong Vision Pro.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/thanhdat/danh-gia-pin-iphone-16/tren-tay-iphone-16-camera-6.jpg"
+                alt="Đánh giá chi tiết iPhone 16: Một mẫu iPhone rất đáng mua nếu bạn chấp nhận 3 điều này!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+            </figure>
+            <p class="pb-3">
+              Xét đến khả năng quay video, Apple iPhone 16 hỗ trợ quay video 4K
+              và hỗ trợ chống rung OIS khá tốt. Tương tư như những thế hệ trước,
+              máy hoàn toàn có thể phục vụ từ nhóm người dùng cơ bản, sử dụng
+              điện thoại để lưu giữ khoảnh khắc hằng ngày, Cho đến những đối
+              tượng sáng tạo nội dung, sản xuất nội dung cũng sẽ hài lòng nhờ
+              khả năng quay video và thu âm trên mẫu iPhone 16 này.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/thanhdat/danh-gia-pin-iphone-16/tren-tay-iphone-16-16.jpg"
+                alt="Đánh giá chi tiết iPhone 16: Một mẫu iPhone rất đáng mua nếu bạn chấp nhận 3 điều này!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+            </figure>
+            <p class="pb-3">
+              Nhắc đến việc quay video hay chụp ảnh trên Apple iPhone 16, thì sự
+              xuất hiện của nút điều khiển camera (Camera control) được Apple
+              hứa hẹn sẽ giúp cho các tác vụ đó tiện lợi hơn, các thao tác chụp
+              ảnh khi cầm điện thoại ngang sẽ giống một chiếc máy ảnh hơn.
+            </p>
+            <p class="pb-3">
+              Nút điều khiển camera này là sự kết hợp giữa nút vật lý và cảm
+              ứng. Người dùng chỉ cần giữ hoặc nhấn hai lần là có thể điều khiển
+              được camera như: Zoom vào - zoom ra, chuyển đổi tiêu cự, mở máy
+              ảnh nhanh, chuyển đối chế độ quay - chụp tức thời,...vv.
+            </p>
+            <p class="pb-3">
+              Tuy nhiên, thực sự trong thời gian qua thì mình cũng không đụng
+              đến nút này quá nhiều, chỉ tò mò 1 2 ngày rồi chụp vẫn dùng màn
+              hình thông thường.
+            </p>
+            <h1 class="text-2xl font-bold pb-3">Pin vẫn ngon, sạc không đổi</h1>
+            <p class="pb-3">
+              Về dung lượng pin, iPhone 16 được trang bị viên pin dung lượng
+              3,561 mAh khá khiêm tốn so với hầu hết các đối thủ của nó. Khi
+              nhìn sang thế giới smartphone Android, dung lượng pin 5,000mAh gần
+              như đã trở thành tiêu chuẩn. Về thông số thì viên pin trên iPhone
+              16 có phần thua thiệt, tuy nhiên nhờ sự tối ưu từ phần cứng cho
+              đến phần mềm. Khả năng "trụ" pin và thời lượng sử dụng thực tế
+              trên Apple iPhone 16 chưa bao giờ khiến người dùng thất vọng.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/thanhdat/danh-gia-pin-iphone-16/danh-gia-pin-iphone-16-3.jpg"
+                alt="Đánh giá chi tiết iPhone 16: Một mẫu iPhone rất đáng mua nếu bạn chấp nhận 3 điều này!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+            </figure>
+            <p class="pb-3">
+              Trong bài kiểm tra thời lượng sử dụng pin trên mẫu iPhone 16, máy
+              mang đến thời lượng sử dụng gần 10 tiếng dù vẫn còn 18% pin. Trong
+              bài kiểm tra đó, máy được kết nối Wi-Fi và sử dụng với những tác
+              vụ như nghe gọi, video call, chơi game và quay video 4K. Kết quả
+              này thật sự ấn tượng với viên pin chỉ 3,561mAh của iPhone 16. Nếu
+              như người dùng không có nhu cầu chơi game mà chỉ đơn thuần sử dụng
+              cho nhu cầu nghe gọi, sử dụng mạng xã hội đơn thuần thì mẫu sản
+              phẩm này hoàn toàn có thể trụ được lâu hơn.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/thanhdat/danh-gia-pin-iphone-16/danh-gia-pin-iphone-16-1.jpg"
+                alt="Đánh giá chi tiết iPhone 16: Một mẫu iPhone rất đáng mua nếu bạn chấp nhận 3 điều này!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+            </figure>
+            <p class="pb-3">
+              Về tốc độ sạc, khá đáng tiếc khi gần như không có bất kỳ sự nâng
+              cấp nào về công suất sạc trên mẫu iPhone 16. Người dùng cần mất
+              khoảng 30 phút để có 50% pin và gần hai tiếng để có thể sạc đầy
+              cho máy nếu bật chế độ tối ưu hóa sạc pin. Có lẽ đây là điều mà
+              người dùng buộc phải chấp nhận khi lựa chọn sử dụng thiết bị này.
+            </p>
+            <h1 class="text-2xl font-bold pb-3">Tổng kết về iPhone 16</h1>
+            <p class="pb-3">
+              Tóm lại, với giá bán niêm yết của Apple iPhone 16, mặc dù vẫn còn
+              một số điểm yếu so với các đối thủ của nó như: Màn hình chỉ 60Hz,
+              không có sạc nhanh, hay camera chỉ 2 ống kính. Thế nhưng xét về
+              tổng quan những gì mà Apple mang đến như vi xử lý Apple A18, phần
+              mềm iOS,..vv. Đặc biệt là những tính năng AI (Apple Intelligence)
+              sẽ sớm được hỗ trợ đầy đủ trong thời gian ngắn tới sẽ giúp người
+              dùng iPhone có những trải nghiệm mới lạ hơn bao giờ hết.
+            </p>
+            <h1 class="text-2xl font-bold pb-3">
+              Những nơi bán Iphone 16 chất lượng, uy tín.
+            </h1>
+            <ul>
+              <li>
+                Thế giới di động:
+                <a
+                  href="https://www.thegioididong.com/dtdd-apple-iphone-16-series"
+                  ><u style="color: blue">Nhấp vào đây để mua ngay</u></a
+                >
+              </li>
+              <li>
+                Cellphones:
+                <a
+                  href="https://cellphones.com.vn/mobile/apple/iphone-16.html?gad_source=1&gclid=CjwKCAiA3ZC6BhBaEiwAeqfvykdVvqWC9ANVJ-w6E5USnQ9o8r54_vjrKUN9VMMWN-aD5QPr_2qICBoCsU8QAvD_BwE"
+                  ><u style="color: blue">Nhấp vào đây để mua ngay</u></a
+                >
+              </li>
+              <li>
+                FPT Shop:
+                <a href="https://fptshop.com.vn/dien-thoai/iphone-16-series"
+                  ><u style="color: blue">Nhấp vào đây để mua ngay</u></a
+                >
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <div
+          class="w-full flex flex-col text-center md:text-left md:flex-row shadow bg-white mt-10 mb-10 p-6"
+        >
+          <div
+            class="w-full md:w-1/5 flex justify-center md:justify-start pb-4"
+          >
+            <img
+              src="https://source.unsplash.com/collection/1346951/150x150?sig=1"
+              class="rounded-full shadow h-32 w-32"
+            />
+          </div>
+          <div class="flex-1 flex flex-col justify-center md:justify-start">
+            <p class="font-semibold text-2xl">Lê Khải</p>
+            <p class="pt-2">
+              Cuộc sống liên tục thay đổi, công nghệ không ngừng chuyển mình. Lê Khải tự hào là thành viên của EasyTech và cập nhật tin tức công nghệ cho mọi người.
+            </p>
+            <div
+              class="flex items-center justify-center md:justify-start text-2xl no-underline text-blue-800 pt-4"
+            >
+              <a class="" href="#">
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a class="pl-4" href="#">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a class="pl-4" href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a class="pl-4" href="#">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sidebar Section -->
+      <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
+        <div class="w-full bg-white shadow flex flex-col my-4 p-6">
+          <p class="text-xl font-semibold pb-5">Về chúng tôi</p>
+          <p class="pb-2">
+            EasyTech là blog công nghệ chuyên cung cấp đánh giá công tâm, thông
+            tin hữu ích, giúp người dùng dễ dàng tiếp cận và hiểu rõ hơn về sản
+            phẩm công nghệ.
+          </p>
+          <a
+            href="#"
+            class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4"
+          >
+            Biết thêm về chúng tôi
+          </a>
+        </div>
+
+        <div class="w-full bg-white shadow flex flex-col my-4 p-6">
+          <p class="text-xl font-semibold pb-5">Instagram</p>
+          <a
+            href="#"
+            class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-6"
+          >
+            <i class="fab fa-instagram mr-2"></i> Follow EasyTech
+          </a>
+        </div>
+      </aside>
+    </div>
+
+    
+      <div class="w-full container mx-auto flex flex-col items-center">
+        <div
+          class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6"
+        >
+          <a href="#" class="uppercase px-3">About Us</a>
+          <a href="#" class="uppercase px-3">Privacy Policy</a>
+          <a href="#" class="uppercase px-3">Terms & Conditions</a>
+          <a href="#" class="uppercase px-3">Contact Us</a>
+        </div>
+        <div class="uppercase pb-6">&copy; myblog.com</div>
+      </div>
+    </footer>
+
+  
+  </body>
+</html>

@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EasyTech - Tin công nghệ</title>
+    <meta name="author" content="EasyTech" />
+    <meta
+      name="description"
+      content="EasyTech là blog công nghệ uy tín, nơi bạn có thể tìm thấy những đánh giá chi tiết, thông tin mới nhất về các sản phẩm công nghệ và câu hỏi đáp từ các chuyên gia. Cập nhật tin tức và đánh giá sản phẩm công nghệ dễ hiểu và dễ tiếp cận."
+    />
+    <meta
+      name="keywords"
+      content="EasyTech, đánh giá sản phẩm công nghệ, thông tin công nghệ, blog công nghệ, sản phẩm công nghệ, câu hỏi đáp công nghệ, KOL công nghệ, đánh giá sản phẩm thực tế, công nghệ dễ hiểu, sản phẩm công nghệ mới"
+    />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Tailwind -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Karla:400,700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+      .font-family-karla {
+        font-family: karla;
+      }
+      .font-family-open-sans {
+        font-family: "Open Sans", sans-serif;
+        font-variation-settings: "wdth" 100;
+      }
+      .font-family-inter {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+
+    <!-- AlpineJS -->
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <!-- Font Awesome -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+      integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="bg-white font-family-open-sans">
+    <!-- Top Bar Nav -->
+    <nav class="w-full py-4 bg-blue-800 shadow">
+      <div
+        class="w-full container mx-auto flex flex-wrap items-center justify-between"
+      >
+        <nav>
+          <ul
+            class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline"
+          >
+            <li>
+              <a class="hover:text-gray-200 hover:underline px-4" href="#"
+                >Shop</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-gray-200 hover:underline px-4" href="#"
+                >About</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <div class="flex items-center text-lg no-underline text-white pr-6">
+          <a class="" href="#">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a class="pl-6" href="#">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a class="pl-6" href="#">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a class="pl-6" href="#">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Text Header -->
+    <header class="w-full container mx-auto">
+      <div class="flex flex-col items-center py-12">
+        <a
+          class="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl"
+          href="#"
+        >
+          Easy Tech
+        </a>
+        <p class="text-lg text-gray-600">Khám phá công nghệ trong tầm tay</p>
+      </div>
+    </header>
+
+    <!-- Topic Nav -->
+    <nav
+      class="w-full py-4 border-t border-b bg-gray-100"
+      x-data="{ open: false }"
+    >
+      <div class="block sm:hidden">
+        <a
+          href="#"
+          class="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center"
+          @click="open = !open"
+        >
+          Topics
+          <i
+            :class="open ? 'fa-chevron-down': 'fa-chevron-up'"
+            class="fas ml-2"
+          ></i>
+        </a>
+      </div>
+      <div
+        :class="open ? 'block': 'hidden'"
+        class="w-full flex-grow sm:flex sm:items-center sm:w-auto"
+      >
+        <div
+          class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2"
+        >
+          <a href="blog.html" class="hover:bg-gray-400 rounded py-2 px-4 mx-2"
+            >Tin tức công nghệ</a
+          >
+          <a
+            href="../sanpham/blog.html"
+            class="hover:bg-gray-400 rounded py-2 px-4 mx-2"
+            >Đánh giá sản phẩm</a
+          >
+          <a
+            href="../tuvan/blog.html"
+            class="hover:bg-gray-400 rounded py-2 px-4 mx-2"
+            >Tư vấn</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mx-auto flex flex-wrap py-6">
+      <!-- Post Section -->
+      <section class="w-full md:w-2/3 flex flex-col items-center px-3">
+        <article class="flex flex-col shadow my-4">
+          <!-- Article Image -->
+          <div class="bg-white flex flex-col justify-start p-6">
+            <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4"
+              >Đánh giá sản phẩm</a
+            >
+            <a href="#" class="text-3xl font-bold hover:text-gray-700 pb-4"
+              >Đánh giá Honor MagicBook Art 14: Cấu hình đỉnh, thiết kế siêu
+              nhẹ, webcam độc nhất vô nhị!</a
+            >
+            <p href="#" class="text-sm pb-8">
+              By
+              <a href="#" class="font-semibold hover:text-gray-800">Lê Khải</a>,
+              Đăng vào ngày 26 tháng 11 năm 2024
+            </p>
+            <p class="pb-3">
+              Vào tháng 7 ngay năm nay, Honor đã ra mắt MagicBook Art 14 cho thị
+              trường Trung Quốc, mẫu laptop này sở hữu màn hình gần 15 inch với
+              tỷ lệ khung hình 3:2 rất tiện lợi và webcam rời độc đáo.
+            </p>
+            <p class="pb-3">
+              Đây thực sự là một thông số vô cùng tuyệt vời, nhưng điều khiến
+              mình phải thực sự khán phục phải đến từ những yếu tố trên đã được
+              Honor ''nhét'' vừa vặn trong một chiếc laptop có trọng lượng 1,03
+              kg - bạn đọc đúng rồi đấy - chỉ hơn 1 kg một chút.
+            </p>
+            <p class="pb-3">
+              Để bạn hình dung, MacBook Air 15,3 inch chỉ có diện tích hiển thị
+              lớn hơn khoảng 7% (677cm2 so với 634cm2) nhưng nặng hơn 46%
+              (1,51kg so với 1,03kg). Nửa kg là một sự khác biệt rất lớn đối với
+              một chiếc laptop siêu di động rồi đó. Chi tiết về sản phẩm này,
+              hãy cùng Sforum theo dõi bài viết ngay bên dưới này nhé.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/chidung/danh-gia-honor-magicbook-art-14/danh-gia-honor-magicbook-art-14-1.jpg"
+                alt="Đánh giá Honor MagicBook Art 14: Cấu hình đỉnh, thiết kế siêu nhẹ, webcam độc nhất vô nhị!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <figcaption
+                style="font-size: 0.9rem; color: gray; margin-top: 4px"
+              >
+                Có nên mua Honor MagicBook Art 14?
+              </figcaption>
+            </figure>
+            <h1 class="text-2xl font-bold pb-3">
+              Thiết kế: Vừa có trọng lượng siêu nhẹ 1.03kg, vừa có webcam tháo
+              rời tiện lợi
+            </h1>
+            <p class="pb-3">
+              Honor MagicBook Art 14 mang tới một giải pháp khá độc đáo cho vị
+              trí đặt camera. Thay vì làm dày viền trên để chứa camera hay làm
+              một phần khuyết hình ''tai thỏ'', hãng đã biến camera thành một
+              miếng nam châm gắn vào phía trên màn hình khi sử dụng và nhét vào
+              thân máy tính xách tay trong thời gian còn lại.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/chidung/danh-gia-honor-magicbook-art-14/danh-gia-honor-magicbook-art-14-2.jpg"
+                alt="Đánh giá Honor MagicBook Art 14: Cấu hình đỉnh, thiết kế siêu nhẹ, webcam độc nhất vô nhị!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <figcaption
+                style="font-size: 0.9rem; color: gray; margin-top: 4px"
+              >
+                Honor MagicBook Art 14 có trọng lượng chỉ vỏn vẹn 1,03 kg
+              </figcaption>
+            </figure>
+            <p class="pb-3">
+              Điều này giúp viền màn hình mỏng 2,2 mm ở hai bên và phía trên,
+              tạo nên một chiếc máy trông gọn gàng. Thêm vào đó, nó loại bỏ mọi
+              lo ngại về quyền riêng tư mà bạn có thể gặp phải vì camera không
+              chỉ không nhìn vào bạn mà còn có thể tháo rời hoàn toàn khi bạn
+              không cần đến.
+            </p>
+            <p class="pb-3">
+              Các linh kiện cũng được sắp xếp rất thông minh, cộng thêm vật liệu
+              nhẹ giúp máy có trọng lượng đáng kinh ngạc là 1,03 kg. Bên cạnh
+              đó, chiếc laptop này có bàn phím titan, giúp giảm trọng lượng 16%
+              so với các mẫu laptop thế hệ trước đó.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/chidung/danh-gia-honor-magicbook-art-14/danh-gia-honor-magicbook-art-14-3.jpg"
+                alt="Đánh giá Honor MagicBook Art 14: Cấu hình đỉnh, thiết kế siêu nhẹ, webcam độc nhất vô nhị!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <figcaption
+                style="font-size: 0.9rem; color: gray; margin-top: 4px"
+              >
+                Chất lượng của Honor MagicBook Art 14 được hoàn thiện rất tốt
+              </figcaption>
+            </figure>
+            <p class="pb-3">
+              Thân máy được làm từ hợp kim magiê, giúp vỏ máy nhẹ hơn 30% so với
+              các đời trước. Theo như thông tin từ nhà sản xuất, thì lớp hoàn
+              thiện được gọi là Công nghệ phun Satin Emanel, đây là lớp phủ thân
+              thiện với da và cũng rất bền. Chiếc laptop này có màu Sunrise
+              White (với tông màu hồng và tím nhẹ) hoặc Emerald Green, có xu
+              hướng ngả xanh lam trong một số điều kiện ánh sáng nhất định và
+              không phải là màu xanh ô liu đâu nhé.
+            </p>
+            <p class="pb-3">
+              Bên trong, Honor thiết kế pin để tối ưu hóa việc sử dụng không
+              gian lên 28%. Thực sự thì Honor MagicBook Art 14 có cảm giác rất
+              giống với Huawei MateBook X Pro 2024. Cả hai máy đều có lớp hoàn
+              thiện có kết cấu tương tự nhau, nhưng trong khi MateBook X Pro
+              2024 nhẹ hơn một chút ở mức 980g, màn hình 14,2 inch của nó nhỏ
+              hơn đáng kể, cũng như bàn di chuột của nó.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/chidung/danh-gia-honor-magicbook-art-14/danh-gia-honor-magicbook-art-14-4.jpg"
+                alt="Đánh giá Honor MagicBook Art 14: Cấu hình đỉnh, thiết kế siêu nhẹ, webcam độc nhất vô nhị!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <figcaption
+                style="font-size: 0.9rem; color: gray; margin-top: 4px"
+              ></figcaption>
+            </figure>
+            <p class="pb-3">
+              Module camera rõ ràng là rất sáng tạo, nó nằm gọn phần hông góc
+              trái của chiếc laptop này và có thể bật ra hoặc bật vào bằng cách
+              ấn ngón tay. Đây là một cách thông minh để xử lý camera trên máy
+              tính xách tay nhưng nó lại đẩy hai cổng kết nối ở phía bên trái
+              của MagicBook Art 14 xuống một chút. Nó có vẻ ngoài không cân đối
+              có thể khiến một số người khó chịu.
+            </p>
+            <p class="pb-3">
+              Khi lấy ra rồi, bạn có thể module camera gắn vào phía cạnh trên
+              màn hình, nhờ lực hút tốt nên chiếc camera này bám cũng khá chặt.
+              Điểm đặc biệt của chiếc camera này là nó không những có thể tường
+              thuật hình ảnh ở phía bạn, mà nó còn có thể quay video ở phía
+              trước để người khác có thể theo dõi góc nhìn của bạn đấy, bạn chỉ
+              cần nhấc chiếc camera này lên và xoay ngược lại thôi.
+            </p>
+            <p class="pb-3">
+              Về phần loa, Honor MagicBook Art 14 có sáu loa và ba micrô trên
+              máy tính xách tay này và chúng hoạt động rất tốt. Âm lượng đủ lớn
+              để lấp đầy một căn phòng và thậm chí còn có một số âm trầm bên
+              dưới, khiến âm thanh đầy đặn.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/chidung/danh-gia-honor-magicbook-art-14/danh-gia-honor-magicbook-art-14-8.jpg"
+                alt="Đánh giá Honor MagicBook Art 14: Cấu hình đỉnh, thiết kế siêu nhẹ, webcam độc nhất vô nhị!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <figcaption
+                style="font-size: 0.9rem; color: gray; margin-top: 4px"
+              ></figcaption>
+            </figure>
+            <h1 class="text-2xl font-bold pb-3">
+              Cổng kết nối Honor MagicBook Art 14 rất đa dạng
+            </h1>
+            <p class="pb-3">
+              MagicBook Art 14 không làm bạn thất vọng về mặt cổng kết nối. Bạn
+              có hai cổng USB-C ở bên trái - một Thunderbolt 4 (40Gbps) và một
+              USB 3.2 Gen 1 (5Gbps). Bên phải là một cổng USB-A (5Gbps), một
+              cổng HDMI 2.1 (4k@60Hz) và một giắc cắm âm thanh 3,5 mm.
+            </p>
+            <p class="pb-3">
+              Bạn nên sử dụng cổng USB-C hỗ trợ Thunderbolt ở bên phải (có hình
+              tia sét) để sạc vì nó mang lại tốc độ sạc cao nhất.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/chidung/danh-gia-honor-magicbook-art-14/danh-gia-honor-magicbook-art-14-21.jpg"
+                alt="Đánh giá Honor MagicBook Art 14: Cấu hình đỉnh, thiết kế siêu nhẹ, webcam độc nhất vô nhị!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <figcaption
+                style="font-size: 0.9rem; color: gray; margin-top: 4px"
+              ></figcaption>
+            </figure>
+            <h1 class="text-2xl font-bold pb-3">
+              Màn hình Honor MagicBook Art 14 thuộc hàng đẹp nhất phân khúc
+            </h1>
+            <p class="pb-3">
+              Màn hình của Honor MagicBook Art 14 thực sự là một kiệt tác. Mặc
+              dù đây không phải là chiếc máy tính xách tay duy nhất được trang
+              bị tấm nền OLED, nhưng tấm nền này xứng đáng nằm trong số những
+              chiếc máy tính xách tay tốt nhất hiện nay.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/chidung/danh-gia-honor-magicbook-art-14/danh-gia-honor-magicbook-art-14-25.jpg"
+                alt="Đánh giá Honor MagicBook Art 14: Cấu hình đỉnh, thiết kế siêu nhẹ, webcam độc nhất vô nhị!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <figcaption
+                style="font-size: 0.9rem; color: gray; margin-top: 4px"
+              >
+                Màn hình Honor MagicBook Art 14 có độ phủ màu rất tốt
+              </figcaption>
+            </figure>
+            <p class="pb-3">
+              Đây là màn hình FullView 10 bit 14,6 inch có độ phân giải
+              3120x2080px với tỷ lệ khung hình 3:2 vuông hơn mức trung bình, tần
+              số quét lên đến 120Hz và điều khiển cảm ứng 10 điểm. Tấm nền có độ
+              phủ DCI-P3 100%, cũng như xếp hạng DeltaE (ΔE) dưới 0,5. Tấm nền
+              có khả năng làm mờ không nhấp nháy PWM 4320Mh và thậm chí còn được
+              TUV Rheinland chứng nhận về chứng nhận phát xạ ánh sáng xanh thấp.
+            </p>
+            <p class="pb-3">
+              Tấm nền được đánh giá có độ sáng lên đến 700nits ở chế độ HDR và
+              chúng mình đo được 500nits ở chế độ SDR. Huawei MateBook X Pro
+              2024 đo được cao hơn một chút, đặc biệt là ở chế độ HDR (950 nits)
+              nhưng MagicBook Art 14 vẫn có độ sáng ấn tượng.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/chidung/danh-gia-honor-magicbook-art-14/danh-gia-honor-magicbook-art-14-14.jpg"
+                alt="Đánh giá Honor MagicBook Art 14: Cấu hình đỉnh, thiết kế siêu nhẹ, webcam độc nhất vô nhị!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <figcaption
+                style="font-size: 0.9rem; color: gray; margin-top: 4px"
+              ></figcaption>
+            </figure>
+            <p class="pb-3">
+              Có thể thấy, Huawei và Honor luôn là đối tác làm ăn cực kỳ uy tín
+              khi công nghệ độc quyền đã được họ cùng nhau phát triển, để rồi
+              đây MagicBook Art 14 đã được ''thừa hưởng'' những thành quả đó.
+              Khi nhấp chuột phải vào màn hình nền và vào Display Manager, nơi
+              bạn có thể chọn phổ màu mà máy tính xách tay tuân thủ - sRGB, P3
+              hoặc gốc. Đây là một tính năng tuyệt vời mà hầu hết các laptop
+              khác không có, mình nghĩ tính năng này sẽ đặc biệt hữu ích cho
+              những người sáng tạo nội dung.
+            </p>
+            <p class="pb-3">
+              Đây cũng là nơi bạn có thể điều chỉnh tông màu của màn hình, đặt ở
+              chế độ eBook và tinh chỉnh màu sắc.
+            </p>
+            <h1 class="text-2xl font-bold pb-3">Webcam</h1>
+            <p class="pb-3">
+              Camera từ tính 1080p không có cảm biến IR cho Windows Hello. Về
+              chất lượng, đây là một webcam đủ tốt nhưng không có gì đặc biệt.
+              Chất lượng hình ảnh ổn nhưng không có HDR chẳng hạn. Trường nhìn
+              của webcam rất rộng và bạn có thể thiết lập để theo dõi khuôn mặt
+              của bạn trên toàn bộ khung hình.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/chidung/danh-gia-honor-magicbook-art-14/danh-gia-honor-magicbook-art-14-19.jpg"
+                alt="Đánh giá ASUS Vivobook S 14: Ryzen 9 AI quá mạnh, ai mua bản Intel đầu năm sẽ tiếc hùi hụi!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <figcaption
+                style="font-size: 0.9rem; color: gray; margin-top: 4px"
+              >
+                Webcam có thể tháo rời của Honor MagicBook Art 14
+              </figcaption>
+            </figure>
+            <p class="pb-3">
+              Thực hiện cuộc gọi thông qua MagicBook Art 14 là một trải nghiệm
+              tuyệt vời. Người gọi báo cáo rằng họ nghe thấy chúng tôi tốt qua
+              bộ ba micrô của máy tính xách tay và đánh giá cao tính năng khử
+              tiếng ồn chủ động.
+            </p>
+            <h1 class="text-2xl font-bold pb-3">Tạm kết</h1>
+            <p class="pb-3">
+              Quả thực là, Honor đã tạo ra một chiếc laptop siêu mỏng đầy hấp
+              dẫn, dù nhìn từ góc độ nào, MagicBook Art 14 cũng là một cái tên
+              đặc biệt nổi bật giữa một ''rừng'' máy tính xách tay mỏng và nhẹ
+              khác trên thị trường hiện nay.
+            </p>
+            <p class="pb-3">
+              Thiết kế của máy không phải là kim loại gia công thông thường và
+              có hai màu sắc thú vị. Camera từ tính cải tiến cho phép tạo ra
+              viền mỏng và đều xung quanh màn hình lớn hơn hầu hết các đối thủ
+              cạnh tranh 14 inch. Chưa kể đến việc đây là tấm nền OLED tuyệt vời
+              với tốc độ làm mới 120Hz nhanh.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/chidung/danh-gia-honor-magicbook-art-14/danh-gia-honor-magicbook-art-14-32.jpg"
+                alt="Đánh giá ASUS Vivobook S 14: Ryzen 9 AI quá mạnh, ai mua bản Intel đầu năm sẽ tiếc hùi hụi!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <figcaption
+                style="font-size: 0.9rem; color: gray; margin-top: 4px"
+              >
+                Webcam có thể tháo rời của Honor MagicBook Art 14
+              </figcaption>
+            </figure>
+            <p class="pb-3">
+              Và nhìn chung, máy được trang bị chip Intel hoạt động khá tốt -
+              mạnh mẽ nhưng vẫn có thể chạy mát và êm. Và bạn có thể có thời
+              lượng sử dụng rất hợp lý từ pin 60Wh. Mặc dù Honor vẫn chưa tiết
+              lộ giá của MagicBook Art 14, vì vậy chúng mình chưa thể thực sự
+              khuyên bạn nên mua hay không. Tại Trung Quốc, mẫu máy có thông số
+              kỹ thuật cao nhất trong bài đánh giá này hiện có giá là 9.499 CNY
+              (khoảng 33 triệu đồng).
+            </p>
+            <p class="pb-3">
+              Nhưng chắc chắn khi về Việt Nam thì giá của mẫu máy này ít nhiều
+              sẽ phải cao hơn, tuy nhiên nếu tiền không thành vấn đề - thì đây
+              có thể là chiếc máy tính xách tay tốt nhất trong phân khúc laptop
+              kích thước 14 inch đến 15 inch đó.
+            </p>
+            <ul>
+              <li>
+                Thế giới di động:
+                <a
+                  href="https://www.thegioididong.com/tin-tuc/tren-tay-honor-magicbook-art-14-1570286"
+                  ><u style="color: blue">Nhấp vào đây để mua ngay</u></a
+                >
+              </li>
+              <li>
+                Cellphones:
+                <a
+                  href="https://cellphones.com.vn/sforum/danh-gia-honor-magicbook-art-14"
+                  ><u style="color: blue">Nhấp vào đây để mua ngay</u></a
+                >
+              </li>
+              <li>
+                FPT Shop:
+                <a
+                  href="https://fptshop.com.vn/tin-tuc/tin-moi/honor-xac-nhan-magicbook-14-art-cung-se-ra-mat-toan-cau-tai-ifa-154507"
+                  ><u style="color: blue">Nhấp vào đây để mua ngay</u></a
+                >
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <div
+          class="w-full flex flex-col text-center md:text-left md:flex-row shadow bg-white mt-10 mb-10 p-6"
+        >
+          <div
+            class="w-full md:w-1/5 flex justify-center md:justify-start pb-4"
+          >
+            <img
+              src="https://source.unsplash.com/collection/1346951/150x150?sig=1"
+              class="rounded-full shadow h-32 w-32"
+            />
+          </div>
+          <div class="flex-1 flex flex-col justify-center md:justify-start">
+            <p class="font-semibold text-2xl">Lê Khải</p>
+            <p class="pt-2">
+              Cuộc sống liên tục thay đổi, công nghệ không ngừng chuyển mình. Lê
+              Khải tự hào là thành viên của EasyTech và cập nhật tin tức công
+              nghệ cho mọi người.
+            </p>
+            <div
+              class="flex items-center justify-center md:justify-start text-2xl no-underline text-blue-800 pt-4"
+            >
+              <a class="" href="#">
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a class="pl-4" href="#">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a class="pl-4" href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a class="pl-4" href="#">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sidebar Section -->
+      <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
+        <div class="w-full bg-white shadow flex flex-col my-4 p-6">
+          <p class="text-xl font-semibold pb-5">Về chúng tôi</p>
+          <p class="pb-2">
+            EasyTech là blog công nghệ chuyên cung cấp đánh giá công tâm, thông
+            tin hữu ích, giúp người dùng dễ dàng tiếp cận và hiểu rõ hơn về sản
+            phẩm công nghệ.
+          </p>
+          <a
+            href="#"
+            class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4"
+          >
+            Biết thêm về chúng tôi
+          </a>
+        </div>
+
+        <div class="w-full bg-white shadow flex flex-col my-4 p-6">
+          <p class="text-xl font-semibold pb-5">Instagram</p>
+          <a
+            href="#"
+            class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-6"
+          >
+            <i class="fab fa-instagram mr-2"></i> Follow EasyTech
+          </a>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="w-full border-t bg-white pb-12">
+      <div class="w-full container mx-auto flex flex-col items-center">
+        <div
+          class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6"
+        >
+          <a href="#" class="uppercase px-3">About Us</a>
+          <a href="#" class="uppercase px-3">Privacy Policy</a>
+          <a href="#" class="uppercase px-3">Terms & Conditions</a>
+          <a href="#" class="uppercase px-3">Contact Us</a>
+        </div>
+        <div class="uppercase pb-6">&copy; myblog.com</div>
+      </div>
+    </footer>
+
+    <script>
+      function getCarouselData() {
+        return {
+          currentIndex: 0,
+          images: [
+            "https://source.unsplash.com/collection/1346951/800x800?sig=1",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=2",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=3",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=4",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=5",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=6",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=7",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=8",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=9",
+          ],
+          increment() {
+            this.currentIndex =
+              this.currentIndex === this.images.length - 6
+                ? 0
+                : this.currentIndex + 1;
+          },
+          decrement() {
+            this.currentIndex =
+              this.currentIndex === this.images.length - 6
+                ? 0
+                : this.currentIndex - 1;
+          },
+        };
+      }
+    </script>
+  </body>
+</html>

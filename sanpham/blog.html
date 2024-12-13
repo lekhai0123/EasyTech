@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EasyTech - Tin công nghệ</title>
+    <meta name="author" content="EasyTech" />
+    <meta
+      name="description"
+      content="EasyTech là blog công nghệ uy tín, nơi bạn có thể tìm thấy những đánh giá chi tiết, thông tin mới nhất về các sản phẩm công nghệ và câu hỏi đáp từ các chuyên gia. Cập nhật tin tức và đánh giá sản phẩm công nghệ dễ hiểu và dễ tiếp cận."
+    />
+    <meta
+      name="keywords"
+      content="EasyTech, đánh giá sản phẩm công nghệ, thông tin công nghệ, blog công nghệ, sản phẩm công nghệ, câu hỏi đáp công nghệ, KOL công nghệ, đánh giá sản phẩm thực tế, công nghệ dễ hiểu, sản phẩm công nghệ mới"
+    />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Tailwind -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Karla:400,700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+      .font-family-karla {
+        font-family: "Karla", sans-serif;
+      }
+      .font-family-open-sans {
+        font-family: "Open Sans", sans-serif;
+      }
+      article {
+        display: grid;
+        grid-template-columns: auto 1fr; /* Hình ảnh và nội dung chiếm 2 cột */
+        align-items: center; /* Canh giữa theo chiều dọc */
+        gap: 16px; /* Khoảng cách giữa hình và nội dung */
+      }
+
+      .image-wrapper {
+        flex-shrink: 0; /* Đảm bảo hình ảnh không bị co nhỏ */
+        height: 200px; /* Chiều cao cố định hoặc tối đa cho hình ảnh */
+        overflow: hidden; /* Cắt hình ảnh nếu nó lớn hơn chiều cao */
+      }
+
+      .responsive-image {
+        width: auto; /* Đảm bảo giữ tỷ lệ gốc */
+        height: 100%; /* Chiều cao phù hợp với .image-wrapper */
+        object-fit: contain; /* Không làm biến dạng hình ảnh */
+        display: block; /* Loại bỏ khoảng trống mặc định của hình ảnh */
+      }
+      @media (max-width: 768px) {
+        .flex {
+          flex-direction: column; /* Chuyển từ flex-row sang flex-column khi màn hình nhỏ */
+        }
+
+        .responsive-image {
+          width: 100%; /* Thiết lập hình ảnh chiếm 100% chiều rộng của phần tử chứa */
+          height: auto; /* Giữ tỷ lệ khung hình cho ảnh */
+        }
+
+        .image-wrapper {
+          width: 100%; /* Đảm bảo phần chứa ảnh cũng chiếm 100% chiều rộng */
+          height: 100%;
+        }
+      }
+    </style>
+
+    <!-- AlpineJS -->
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <!-- Font Awesome -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+      integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="bg-white font-family-open-sans">
+    <!-- Top Bar Nav -->
+    <nav class="w-full py-4 bg-blue-800 shadow">
+      <div
+        class="w-full container mx-auto flex flex-wrap items-center justify-between"
+      >
+        <nav>
+          <ul
+            class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline"
+          >
+            <li>
+              <a class="hover:text-gray-200 hover:underline px-4" href="#"
+                >Liên hệ</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-gray-200 hover:underline px-4" href="#"
+                >Về chúng tôi</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <div class="items-center text-lg no-underline text-white pr-6">
+          <a class="" href="#">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a class="pl-6" href="#">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a class="pl-6" href="#">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a class="pl-6" href="#">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Text Header -->
+    <header class="w-full container mx-auto">
+      <div class="flex flex-col items-center py-12">
+        <a
+          class="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl"
+          href="#"
+        >
+          Easy Tech
+        </a>
+        <p class="text-lg text-gray-600">Khám phá công nghệ trong tầm tay</p>
+      </div>
+    </header>
+
+    <!-- Topic Nav -->
+    <nav
+      class="w-full py-4 border-t border-b bg-gray-100"
+      x-data="{ open: false }"
+    >
+      <div class="block sm:hidden">
+        <a
+          href="#"
+          class="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center"
+          @click="open = !open"
+        >
+          Topics
+          <i
+            :class="open ? 'fa-chevron-down': 'fa-chevron-up'"
+            class="fas ml-2"
+          ></i>
+        </a>
+      </div>
+      <div
+        :class="open ? 'block': 'hidden'"
+        class="w-full flex-grow sm:flex sm:items-center sm:w-auto"
+      >
+        <div
+          class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2"
+        >
+          <a
+            href="../congnghe/blog.html"
+            class="hover:bg-gray-400 rounded py-2 px-4 mx-2"
+            >Tin tức công nghệ</a
+          >
+          <a
+            href="../sanpham/blog.html"
+            class="hover:bg-gray-400 rounded py-2 px-4 mx-2"
+            >Đánh giá sản phẩm</a
+          >
+          <a
+            href="../tuvan/blog.html"
+            class="hover:bg-gray-400 rounded py-2 px-4 mx-2"
+            >Tư vấn</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mx-auto flex flex-wrap py-6">
+      <!-- Posts Section -->
+      <section class="w-full md:w-2/3 flex flex-col items-center px-3">
+        <article class="flex flex-row shadow my-4">
+          <!-- Article Image -->
+          <a href="post.html" class="hover:opacity-75 image-wrapper">
+            <img
+              src="https://cdn-media.sforum.vn/storage/app/media/thanhdat/danh-gia-pin-iphone-16/iphone-16-2.jpg"
+              class="responsive-image"
+            />
+          </a>
+          <div class="bg-white flex flex-col justify-start p-6">
+            <!-- Nội dung bài viết -->
+            <a
+              href="blog.html"
+              class="text-blue-700 text-sm font-bold uppercase pb-4"
+              >Đánh giá sản phẩm</a
+            >
+            <a
+              href="post.html"
+              class="text-3xl font-bold hover:text-gray-700 pb-4"
+            >
+              Đánh giá chi tiết iPhone 16: Một mẫu iPhone rất đáng mua nếu bạn
+              chấp nhận 3 điều này!
+            </a>
+            <p class="text-sm pb-3">
+              By
+              <a href="#" class="font-semibold hover:text-gray-800">Lê Khải</a>,
+              Đăng vào ngày 26 tháng 11 năm 2024
+            </p>
+            <a href="post.html" class="pb-6">
+              Trong 4 mẫu iPhone năm nay, mẫu iPhone 16 và iPhone 16 Plus dành
+              được sự quan tâm từ nhiều người dùng nhờ sự thay đổi về thiết kế
+              so với thế hệ tiền nhiệm.
+            </a>
+            <a href="post.html" class="uppercase text-gray-800 hover:text-black"
+              >Đọc tiếp <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </article>
+
+        <article class="flex flex-row shadow my-4">
+          <!-- Article Image -->
+          <a href="post2.html" class="hover:opacity-75 image-wrapper">
+            <img
+              src="https://cdn-media.sforum.vn/storage/app/media/truongan/asus-vivobook-s-14/danh-gia-asus-vivobook-s-14%20(41).jpg"
+              class="responsive-image"
+              alt="Đánh giá ASUS Vivobook S 14: Ryzen 9 AI quá mạnh, ai mua bản Intel
+              đầu năm sẽ tiếc hùi hụi!"
+            />
+          </a>
+          <div class="bg-white flex flex-col justify-start p-6">
+            <!-- Nội dung bài viết -->
+            <a
+              href="blog.html"
+              class="text-blue-700 text-sm font-bold uppercase pb-4"
+              >Đánh giá sản phẩm</a
+            >
+            <a
+              href="post2.html"
+              class="text-3xl font-bold hover:text-gray-700 pb-4"
+            >
+              Đánh giá ASUS Vivobook S 14: Ryzen 9 AI quá mạnh, ai mua bản Intel
+              đầu năm sẽ tiếc hùi hụi!
+            </a>
+            <p class="text-sm pb-3">
+              By
+              <a href="#" class="font-semibold hover:text-gray-800">Lê Khải</a>,
+              Đăng vào ngày 26 tháng 11 năm 2024
+            </p>
+            <a href="post2.html" class="pb-6">
+              ASUS Vivobook S 14 (M5406) - phiên bản nâng cấp cuối năm với CPU
+              Ryzen 9 AI 370HX quả thật đã khuynh đảo ultrabook về hiệu năng lẫn
+              thời lượng pin cho đến cả bây giờ.
+            </a>
+            <a
+              href="post2.html"
+              class="uppercase text-gray-800 hover:text-black"
+              >Đọc tiếp <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </article>
+
+        <article class="flex flex-row shadow my-4">
+          <!-- Article Image -->
+          <a href="post3.html" class="hover:opacity-75 image-wrapper">
+            <img
+              src="https://cdn-media.sforum.vn/storage/app/media/chidung/danh-gia-honor-magicbook-art-14/danh-gia-honor-magicbook-art-14-30.jpg"
+              class="responsive-image"
+            />
+          </a>
+          <div class="bg-white flex flex-col justify-start p-6">
+            <!-- Nội dung bài viết -->
+            <a
+              href="blog.html"
+              class="text-blue-700 text-sm font-bold uppercase pb-4"
+              >Đánh giá sản phẩm</a
+            >
+            <a
+              href="post3.html"
+              class="text-3xl font-bold hover:text-gray-700 pb-4"
+            >
+              Đánh giá Honor MagicBook Art 14: Cấu hình đỉnh, thiết kế siêu nhẹ,
+              webcam độc nhất vô nhị!
+            </a>
+            <p class="text-sm pb-3">
+              By
+              <a href="#" class="font-semibold hover:text-gray-800">Lê Khải</a>,
+              Đăng vào ngày 26 tháng 11 năm 2024
+            </p>
+            <a href="post3.html" class="pb-6">
+              Vào tháng 7 ngay năm nay, Honor đã ra mắt MagicBook Art 14 cho thị
+              trường Trung Quốc, mẫu laptop này sở hữu màn hình gần 15 inch với
+              tỷ lệ khung hình 3:2 rất tiện lợi và webcam rời độc đáo.
+            </a>
+            <a
+              href="post3.html"
+              class="uppercase text-gray-800 hover:text-black"
+              >Đọc tiếp <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </article>
+      </section>
+
+      <!-- Sidebar Section -->
+      <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
+        <div class="w-full bg-white shadow flex flex-col my-4 p-6">
+          <p class="text-xl font-semibold pb-5">Về chúng tôi</p>
+          <p class="pb-2">
+            EasyTech là blog công nghệ chuyên cung cấp đánh giá công tâm, thông
+            tin hữu ích, giúp người dùng dễ dàng tiếp cận và hiểu rõ hơn về sản
+            phẩm công nghệ.
+          </p>
+          <a
+            href="#"
+            class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4"
+          >
+            Biết thêm về chúng tôi
+          </a>
+        </div>
+
+        <div class="w-full bg-white shadow flex flex-col my-4 p-6">
+          <p class="text-xl font-semibold pb-5">Instagram</p>
+          <a
+            href="#"
+            class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-6"
+          >
+            <i class="fab fa-instagram mr-2"></i> Follow EasyTech
+          </a>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="w-full border-t bg-white pb-12">
+      <div class="w-full container mx-auto flex flex-col items-center">
+        <div
+          class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6"
+        >
+          <a href="#" class="uppercase px-3">About Us</a>
+          <a href="#" class="uppercase px-3">Privacy Policy</a>
+          <a href="#" class="uppercase px-3">Terms & Conditions</a>
+          <a href="#" class="uppercase px-3">Contact Us</a>
+        </div>
+        <div class="uppercase pb-6">&copy; myblog.com</div>
+      </div>
+    </footer>
+
+    <script>
+      function getCarouselData() {
+        return {
+          currentIndex: 0,
+          images: [
+            "https://source.unsplash.com/collection/1346951/800x800?sig=1",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=2",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=3",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=4",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=5",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=6",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=7",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=8",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=9",
+          ],
+          increment() {
+            this.currentIndex =
+              this.currentIndex === this.images.length - 6
+                ? 0
+                : this.currentIndex + 1;
+          },
+          decrement() {
+            this.currentIndex =
+              this.currentIndex === this.images.length - 6
+                ? 0
+                : this.currentIndex - 1;
+          },
+        };
+      }
+    </script>
+  </body>
+</html>

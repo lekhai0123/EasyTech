@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EasyTech - Tin công nghệ</title>
+    <meta name="author" content="EasyTech" />
+    <meta
+      name="description"
+      content="EasyTech là blog công nghệ uy tín, nơi bạn có thể tìm thấy những đánh giá chi tiết, thông tin mới nhất về các sản phẩm công nghệ và câu hỏi đáp từ các chuyên gia. Cập nhật tin tức và đánh giá sản phẩm công nghệ dễ hiểu và dễ tiếp cận."
+    />
+    <meta
+      name="keywords"
+      content="EasyTech, đánh giá sản phẩm công nghệ, thông tin công nghệ, blog công nghệ, sản phẩm công nghệ, câu hỏi đáp công nghệ, KOL công nghệ, đánh giá sản phẩm thực tế, công nghệ dễ hiểu, sản phẩm công nghệ mới"
+    />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Tailwind -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Karla:400,700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+      .font-family-karla {
+        font-family: karla;
+      }
+      .font-family-open-sans {
+        font-family: "Open Sans", sans-serif;
+        font-variation-settings: "wdth" 100;
+      }
+      .font-family-inter {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+
+    <!-- AlpineJS -->
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <!-- Font Awesome -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+      integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="bg-white font-family-open-sans">
+    <!-- Top Bar Nav -->
+    <nav class="w-full py-4 bg-blue-800 shadow">
+      <div
+        class="w-full container mx-auto flex flex-wrap items-center justify-between"
+      >
+        <nav>
+          <ul
+            class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline"
+          >
+            <li>
+              <a class="hover:text-gray-200 hover:underline px-4" href="#"
+                >Shop</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-gray-200 hover:underline px-4" href="#"
+                >About</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <div class="flex items-center text-lg no-underline text-white pr-6">
+          <a class="" href="#">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a class="pl-6" href="#">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a class="pl-6" href="#">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a class="pl-6" href="#">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Text Header -->
+    <header class="w-full container mx-auto">
+      <div class="flex flex-col items-center py-12">
+        <a
+          class="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl"
+          href="#"
+        >
+          Easy Tech
+        </a>
+        <p class="text-lg text-gray-600">Khám phá công nghệ trong tầm tay</p>
+      </div>
+    </header>
+
+    <!-- Topic Nav -->
+    <nav
+      class="w-full py-4 border-t border-b bg-gray-100"
+      x-data="{ open: false }"
+    >
+      <div class="block sm:hidden">
+        <a
+          href="#"
+          class="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center"
+          @click="open = !open"
+        >
+          Topics
+          <i
+            :class="open ? 'fa-chevron-down': 'fa-chevron-up'"
+            class="fas ml-2"
+          ></i>
+        </a>
+      </div>
+      <div
+        :class="open ? 'block': 'hidden'"
+        class="w-full flex-grow sm:flex sm:items-center sm:w-auto"
+      >
+        <div
+          class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2"
+        >
+          <a href="blog.html" class="hover:bg-gray-400 rounded py-2 px-4 mx-2"
+            >Tin tức công nghệ</a
+          >
+          <a
+            href="../sanpham/blog.html"
+            class="hover:bg-gray-400 rounded py-2 px-4 mx-2"
+            >Đánh giá sản phẩm</a
+          >
+          <a
+            href="../tuvan/blog.html"
+            class="hover:bg-gray-400 rounded py-2 px-4 mx-2"
+            >Tư vấn</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mx-auto flex flex-wrap py-6">
+      <!-- Post Section -->
+      <section class="w-full md:w-2/3 flex flex-col items-center px-3">
+        <article class="flex flex-col shadow my-4">
+          <!-- Article Image -->
+          <div class="bg-white flex flex-col justify-start p-6">
+            <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4"
+              >Đánh giá sản phẩm</a
+            >
+            <a href="#" class="text-3xl font-bold hover:text-gray-700 pb-4"
+              >Đánh giá ASUS Vivobook S 14: Ryzen 9 AI quá mạnh, ai mua bản
+              Intel đầu năm sẽ tiếc hùi hụi!</a
+            >
+            <p href="#" class="text-sm pb-8">
+              By
+              <a href="#" class="font-semibold hover:text-gray-800">Lê Khải</a>,
+              Đăng vào ngày 26 tháng 11 năm 2024
+            </p>
+            <p class="pb-3">
+              ASUS Vivobook S 14 (M5406) - phiên bản nâng cấp cuối năm với CPU
+              Ryzen 9 AI 370HX quả thật đã khuynh đảo ultrabook về hiệu năng lẫn
+              thời lượng pin cho đến cả bây giờ.
+            </p>
+            <p class="pb-3">
+              Với các bạn đã mua ASUS Vivobook S 14 phiên bản Intel Core Ultra
+              từ đầu năm thì có lẽ rằng bài đánh giá cho bản AMD này chắc chắn
+              sẽ làm bạn hơi tiếc vì bảng nâng cấp này đáng giá từ hiệu năng đến
+              thời lượng pin.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/truongan/asus-vivobook-s-14/danh-gia-asus-vivobook-s-14%20(41).jpg"
+                alt="Đánh giá ASUS Vivobook S 14: Ryzen 9 AI quá mạnh, ai mua bản Intel đầu năm sẽ tiếc hùi hụi!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <figcaption
+                style="font-size: 0.9rem; color: gray; margin-top: 4px"
+              ></figcaption>
+            </figure>
+            <h1 class="text-2xl font-bold pb-3">
+              ASUS Vivobook S 14 (M5406) không có quá nhiều thay đổi ngoại hình
+            </h1>
+            <p class="pb-3">
+              Với lần nâng cấp này, ASUS tập trung cải thiện hiệu năng, giữ
+              nguyên thiết kế đã được đổi mới từ đầu năm - một quyết định dễ
+              hiểu và hợp lý. Điểm nhấn duy nhất nhưng đầy tinh tế là phiên bản
+              màu bạc xám mới, mang vẻ đẹp sang trọng, đặc biệt thu hút các bạn
+              nữ bên cạnh các tùy chọn xanh và đen của bản Intel trước đó.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/truongan/asus-vivobook-s-14/danh-gia-asus-vivobook-s-14%20(27).jpg"
+                alt="Đánh giá ASUS Vivobook S 14: Ryzen 9 AI quá mạnh, ai mua bản Intel đầu năm sẽ tiếc hùi hụi!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <figcaption
+                style="font-size: 0.9rem; color: gray; margin-top: 4px"
+              ></figcaption>
+            </figure>
+            <p class="pb-3">
+              Dù không thay đổi về thiết kế chất lượng hoàn thiện đến nay vẫn
+              thuộc top ultrabook đẹp và "chanh xả" mang tính thời thượng nhất
+              trong phân khúc 30 triệu đồng. Vẫn đảm bảo 3 yếu tố mà người dùng
+              yêu cầu ở phong cách thiết kế sẽ nằm gọn ở sự cứng cáp, sang trọng
+              và nhỏ nhẹ.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/truongan/asus-vivobook-s-14/danh-gia-asus-vivobook-s-14%20(43).jpg"
+                alt="Đánh giá ASUS Vivobook S 14: Ryzen 9 AI quá mạnh, ai mua bản Intel đầu năm sẽ tiếc hùi hụi!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <figcaption
+                style="font-size: 0.9rem; color: gray; margin-top: 4px"
+              ></figcaption>
+            </figure>
+            <h1 class="text-2xl font-bold pb-3">
+              Cổng kết nối: Thật tiếc khi không có Thunderbolt 4
+            </h1>
+            <p class="pb-3">
+              Với ASUS Vivobook S 14, hãng vẫn tích hợp đầy đủ các cổng cần
+              thiết, qua đó đảm bảo người dùng có được trải nghiệm trọn vẹn và
+              hoàn thành tốt công việc của mình. Ở cạnh trái, chiếc laptop được
+              tích hợp cổng HDMI, 2 cổng USB-C, khe cắm thẻ nhớ microSD và jack
+              cắm âm thanh 3.5 mm. Chiếc máy được sạc bằng đầu USB-C nên bạn có
+              thể sử dụng 1 trong 2 cổng hiện có để nạp pin cho laptop.
+            </p>
+            <p class="pb-3">
+              Điều đáng tiếc duy nhất là cổng USB-C phiên bản AMD chỉ dừng ở mức
+              chuẩn USB 4, tuy tốc độ băng thông không nhanh như Thunderbolt 4
+              độc quyền của Intel, nhưng nếu bạn không phải là người quá
+              hardcore về multimedia như edit xuất ảnh từ ổ cứng ngoài chuẩn
+              Thunderbolt 4 hay xuất màn hình 8K hay 2 màn hình 4K thì đây không
+              phải là điều quá bận tâm.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/truongan/asus-vivobook-s-14/danh-gia-asus-vivobook-s-14%20(5).jpg"
+                alt="Đánh giá ASUS Vivobook S 14: Ryzen 9 AI quá mạnh, ai mua bản Intel đầu năm sẽ tiếc hùi hụi!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <figcaption
+                style="font-size: 0.9rem; color: gray; margin-top: 4px"
+              ></figcaption>
+            </figure>
+            <p class="pb-3">
+              Ở cạnh phải, máy có thêm 2 cổng USB-A để mở rộng việc kết nối các
+              linh kiện (hoặc tích hợp cáp chuyển đổi) nhằm tăng trải nghiệm
+              trọn vẹn hơn. Bên cạnh này cũng có đèn tín hiệu, để bạn dễ dàng
+              trong việc kiểm soát tình trạng tắt/mở thiết bị.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/truongan/asus-vivobook-s-14/danh-gia-asus-vivobook-s-14%20(4).jpg"
+                alt="Đánh giá ASUS Vivobook S 14: Ryzen 9 AI quá mạnh, ai mua bản Intel đầu năm sẽ tiếc hùi hụi!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <figcaption
+                style="font-size: 0.9rem; color: gray; margin-top: 4px"
+              ></figcaption>
+            </figure>
+            <h1 class="text-2xl font-bold pb-3">Bàn phím và trackpad</h1>
+            <p class="pb-3">
+              Dù không có thay đổi đáng kể so với phiên bản trước, lần này mình
+              sẽ đi sâu hơn vào trải nghiệm sử dụng bàn phím và trackpad của
+              ASUS Vivobook S 14. Chiếc laptop 14 inch này mang đến một bàn phím
+              gần như hoàn chỉnh, dù không có phím số, nhưng bù lại, cảm giác gõ
+              rất "đã" nhờ độ nhạy cao và phản hồi nhanh, giúp bạn thao tác mượt
+              mà và chính xác hơn.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/truongan/asus-vivobook-s-14/danh-gia-asus-vivobook-s-14%20(28).jpg"
+                alt="Đánh giá ASUS Vivobook S 14: Ryzen 9 AI quá mạnh, ai mua bản Intel đầu năm sẽ tiếc hùi hụi!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <figcaption
+                style="font-size: 0.9rem; color: gray; margin-top: 4px"
+              ></figcaption>
+            </figure>
+            <p class="pb-3">
+              Thật ra, hành trình phím trên chiếc laptop không quá sâu nhưng
+              cũng chẳng cạn. Cảm giác nhấn vẫn tốt, có lực đàn hồi và mình cộng
+              thêm một điểm nhờ âm thanh "lách cách" khi gõ phím nghe khá sướng
+              tai. Các phím vật lý được thiết kế vuông vức, đều nhau và có
+              khoảng cách nhất định, nhờ đó mà mình gõ nhanh rất mượt và không
+              bị chạm nhầm. À về phần đèn nề bên dưới, ASUS tích hợp đèn nền màu
+              xanh nhạt khá thú vị, giúp bạn có thể làm việc mọi nơi một cách dễ
+              dàng hơn.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/truongan/asus-vivobook-s-14/danh-gia-asus-vivobook-s-14%20(14).jpg"
+                alt="Đánh giá ASUS Vivobook S 14: Ryzen 9 AI quá mạnh, ai mua bản Intel đầu năm sẽ tiếc hùi hụi!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <figcaption
+                style="font-size: 0.9rem; color: gray; margin-top: 4px"
+              ></figcaption>
+            </figure>
+            <p class="pb-3">
+              Thân máy thì nhỏ, vậy mà hãng lại tích hợp trackpad "rộng thênh
+              thang", tha hồ mà "rê chuột" và không gặp cản trở nào. Đổi lại,
+              bạn sẽ khó trách khỏi việc chạm nhầm vào phần trackpad, nhất là
+              những bạn nam có bàn tay to như mình.
+            </p>
+            <p class="pb-3">
+              Bề mặt bàn di chuột khá trơn và mịn, tốc độ phản hồi nhanh chóng
+              và 2 phím vật lý cho cảm giác nhấn êm, không phát ra tiếng ồn gây
+              ảnh hưởng đến những người xung quanh. Trong quá trình di chuột,
+              đôi khi bạn sẽ cảm thấy chuột bị khựng nhẹ (khi không cắm sạc).
+              Điều này không phải lỗi, mà vì thiết bị chưa chuyển sang chế độ
+              Performance (hoặc màn hình 120 Hz). Cụ thể như thế nào thì mình sẽ
+              nói kĩ hơn ở phần bên dưới.
+            </p>
+            <h1 class="text-2xl font-bold pb-3">
+              Vẫn mong chờ nâng cấp màn hình của ASUS Vivobook S 14
+            </h1>
+            <p class="pb-3">
+              Vẫn không thay đổi với phiên bản Intel, với tỉ lệ 16:10, màn hình
+              độ phân giải 3K cùng tấm nền Lumina OLED vô cùng cao cấp trong
+              phân khúc. Nhỏ gọn, mỏng nhẹ nhưng bên trong lại không hề tầm
+              thường. Một trong những điểm cộng lớn đó là ASUS Vivobook S 14
+              được tích hợp tần số quét 120 Hz, mang đến trải nghiệm chơi game
+              mượt mà, khung hình rê rất êm và tạo cảm giác trôi chảy.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/truongan/asus-vivobook-s-14/danh-gia-asus-vivobook-s-14%20(55).jpg"
+                alt="Đánh giá ASUS Vivobook S 14: Ryzen 9 AI quá mạnh, ai mua bản Intel đầu năm sẽ tiếc hùi hụi!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <figcaption
+                style="font-size: 0.9rem; color: gray; margin-top: 4px"
+              ></figcaption>
+            </figure>
+            <p class="pb-3">
+              Tuy nhiên, mình vẫn hy vọng ASUS sẽ nâng cấp trải nghiệm ngoài
+              trời tốt hơn. Việc bổ sung lớp phủ chống chói sẽ giúp giảm phản xạ
+              ánh sáng, và tăng cường độ tương phản sẽ cho phép hiển thị rõ nét
+              hơn ngay cả trong điều kiện ánh sáng mạnh.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://cdn-media.sforum.vn/storage/app/media/truongan/asus-vivobook-s-14/danh-gia-asus-vivobook-s-14%20(49).jpg"
+                alt="Đánh giá ASUS Vivobook S 14: Ryzen 9 AI quá mạnh, ai mua bản Intel đầu năm sẽ tiếc hùi hụi!"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <figcaption
+                style="font-size: 0.9rem; color: gray; margin-top: 4px"
+              ></figcaption>
+            </figure>
+            <h1 class="text-2xl font-bold pb-3">Tổng kết</h1>
+            <p class="pb-3">
+              Sau khoảng thời gian trải nghiệm ASUS Vivobook S 14, dù không có
+              quá nhiều thay đổi về thiết kế so với bản Intel ra mắt đầu năm,
+              nhưng hiệu năng lại là một nâng cấp vượt bậc. Một thiết kế nhỏ và
+              gọn và sành điệu là chưa đủ, thứ mình đang nhận được là một chiếc
+              ultrabook có thời lượng pin trâu và hiệu năng mạnh mẽ nhất trong
+              tất cả laptop AI đang có trên thị trường hiện tại.
+            </p>
+            <p class="pb-3">
+              Còn bạn thì sao? Bạn đánh giá thế nào về ASUS Vivobook S 14? Hãy
+              để lại bình luận bên dưới và cho mình biết với nhé.
+            </p>
+            <h1 class="text-2xl font-bold pb-3">
+              Những nơi bán ASUS Vivobook S 14 chất lượng, uy tín.
+            </h1>
+            <ul>
+              <li>
+                Thế giới di động:
+                <a
+                  href="https://www.thegioididong.com/laptop/asus-vivobook-s-14-flip-tp3402va-i5-lz031w"
+                  ><u style="color: blue">Nhấp vào đây để mua ngay</u></a
+                >
+              </li>
+              <li>
+                Cellphones:
+                <a
+                  href="https://cellphones.com.vn/laptop-asus-vivobook-s-14-oled-m5406wa-pp071ws.html?gad_source=1&gclid=CjwKCAiA0rW6BhAcEiwAQH28Ikpai_xDBgf5c9zsDNSWZwf7dV16hIMQ-jyZDksicLDi4rr2R4czNxoCT6wQAvD_BwE"
+                  ><u style="color: blue">Nhấp vào đây để mua ngay</u></a
+                >
+              </li>
+              <li>
+                FPT Shop:
+                <a
+                  href="https://fptshop.com.vn/may-tinh-xach-tay/asus-vivobook-s14-s5406ma-pp136w-ultra-5-125h"
+                  ><u style="color: blue">Nhấp vào đây để mua ngay</u></a
+                >
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <div
+          class="w-full flex flex-col text-center md:text-left md:flex-row shadow bg-white mt-10 mb-10 p-6"
+        >
+          <div
+            class="w-full md:w-1/5 flex justify-center md:justify-start pb-4"
+          >
+            <img
+              src="https://source.unsplash.com/collection/1346951/150x150?sig=1"
+              class="rounded-full shadow h-32 w-32"
+            />
+          </div>
+          <div class="flex-1 flex flex-col justify-center md:justify-start">
+            <p class="font-semibold text-2xl">Lê Khải</p>
+            <p class="pt-2">
+              Cuộc sống liên tục thay đổi, công nghệ không ngừng chuyển mình. Lê
+              Khải tự hào là thành viên của EasyTech và cập nhật tin tức công
+              nghệ cho mọi người.
+            </p>
+            <div
+              class="flex items-center justify-center md:justify-start text-2xl no-underline text-blue-800 pt-4"
+            >
+              <a class="" href="#">
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a class="pl-4" href="#">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a class="pl-4" href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a class="pl-4" href="#">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sidebar Section -->
+      <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
+        <div class="w-full bg-white shadow flex flex-col my-4 p-6">
+          <p class="text-xl font-semibold pb-5">Về chúng tôi</p>
+          <p class="pb-2">
+            EasyTech là blog công nghệ chuyên cung cấp đánh giá công tâm, thông
+            tin hữu ích, giúp người dùng dễ dàng tiếp cận và hiểu rõ hơn về sản
+            phẩm công nghệ.
+          </p>
+          <a
+            href="#"
+            class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4"
+          >
+            Biết thêm về chúng tôi
+          </a>
+        </div>
+
+        <div class="w-full bg-white shadow flex flex-col my-4 p-6">
+          <p class="text-xl font-semibold pb-5">Instagram</p>
+          <a
+            href="#"
+            class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-6"
+          >
+            <i class="fab fa-instagram mr-2"></i> Follow EasyTech
+          </a>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="w-full border-t bg-white pb-12">
+      <div class="w-full container mx-auto flex flex-col items-center">
+        <div
+          class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6"
+        >
+          <a href="#" class="uppercase px-3">About Us</a>
+          <a href="#" class="uppercase px-3">Privacy Policy</a>
+          <a href="#" class="uppercase px-3">Terms & Conditions</a>
+          <a href="#" class="uppercase px-3">Contact Us</a>
+        </div>
+        <div class="uppercase pb-6">&copy; myblog.com</div>
+      </div>
+    </footer>
+
+    <script>
+      function getCarouselData() {
+        return {
+          currentIndex: 0,
+          images: [
+            "https://source.unsplash.com/collection/1346951/800x800?sig=1",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=2",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=3",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=4",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=5",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=6",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=7",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=8",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=9",
+          ],
+          increment() {
+            this.currentIndex =
+              this.currentIndex === this.images.length - 6
+                ? 0
+                : this.currentIndex + 1;
+          },
+          decrement() {
+            this.currentIndex =
+              this.currentIndex === this.images.length - 6
+                ? 0
+                : this.currentIndex - 1;
+          },
+        };
+      }
+    </script>
+  </body>
+</html>

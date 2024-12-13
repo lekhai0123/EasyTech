@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EasyTech - Tin công nghệ</title>
+    <meta name="author" content="EasyTech" />
+    <meta
+      name="description"
+      content="EasyTech là blog công nghệ uy tín, nơi bạn có thể tìm thấy những đánh giá chi tiết, thông tin mới nhất về các sản phẩm công nghệ và câu hỏi đáp từ các chuyên gia. Cập nhật tin tức và đánh giá sản phẩm công nghệ dễ hiểu và dễ tiếp cận."
+    />
+    <meta
+      name="keywords"
+      content="EasyTech, đánh giá sản phẩm công nghệ, thông tin công nghệ, blog công nghệ, sản phẩm công nghệ, câu hỏi đáp công nghệ, KOL công nghệ, đánh giá sản phẩm thực tế, công nghệ dễ hiểu, sản phẩm công nghệ mới"
+    />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Tailwind -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Karla:400,700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+      .font-family-karla {
+        font-family: karla;
+      }
+      .font-family-open-sans {
+        font-family: "Open Sans", sans-serif;
+        font-variation-settings: "wdth" 100;
+      }
+      .font-family-inter {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+
+    <!-- AlpineJS -->
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <!-- Font Awesome -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+      integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="bg-white font-family-open-sans">
+    <!-- Top Bar Nav -->
+    <nav class="w-full py-4 bg-blue-800 shadow">
+      <div
+        class="w-full container mx-auto flex flex-wrap items-center justify-between"
+      >
+        <nav>
+          <ul
+            class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline"
+          >
+            <li>
+              <a class="hover:text-gray-200 hover:underline px-4" href="#"
+                >Shop</a
+              >
+            </li>
+            <li>
+              <a class="hover:text-gray-200 hover:underline px-4" href="#"
+                >About</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <div class="flex items-center text-lg no-underline text-white pr-6">
+          <a class="" href="#">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a class="pl-6" href="#">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a class="pl-6" href="#">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a class="pl-6" href="#">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Text Header -->
+    <header class="w-full container mx-auto">
+      <div class="flex flex-col items-center py-12">
+        <a
+          class="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl"
+          href="#"
+        >
+          Easy Tech
+        </a>
+        <p class="text-lg text-gray-600">Khám phá công nghệ trong tầm tay</p>
+      </div>
+    </header>
+
+    <!-- Topic Nav -->
+    <nav
+      class="w-full py-4 border-t border-b bg-gray-100"
+      x-data="{ open: false }"
+    >
+      <div class="block sm:hidden">
+        <a
+          href="#"
+          class="block md:hidden text-base font-bold uppercase text-center flex justify-center items-center"
+          @click="open = !open"
+        >
+          Topics
+          <i
+            :class="open ? 'fa-chevron-down': 'fa-chevron-up'"
+            class="fas ml-2"
+          ></i>
+        </a>
+      </div>
+      <div
+        :class="open ? 'block': 'hidden'"
+        class="w-full flex-grow sm:flex sm:items-center sm:w-auto"
+      >
+        <div
+          class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2"
+        >
+          <a href="blog.html" class="hover:bg-gray-400 rounded py-2 px-4 mx-2"
+            >Tin tức công nghệ</a
+          >
+          <a
+            href="../sanpham/blog.html"
+            class="hover:bg-gray-400 rounded py-2 px-4 mx-2"
+            >Đánh giá sản phẩm</a
+          >
+          <a
+            href="../tuvan/blog.html"
+            class="hover:bg-gray-400 rounded py-2 px-4 mx-2"
+            >Tư vấn</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mx-auto flex flex-wrap py-6">
+      <!-- Post Section -->
+      <section class="w-full md:w-2/3 flex flex-col items-center px-3">
+        <article class="flex flex-col shadow my-4">
+          <!-- Article Image -->
+          <a href="#" class="hover:opacity-75">
+            <img
+              src="https://genk.mediacdn.vn/139269124445442048/2023/1/10/ai-1-16733483554931072076210.png"
+              style="width: 200px"
+              class="px-6"
+            />
+          </a>
+          <div class="bg-white flex flex-col justify-start p-6">
+            <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4"
+              >Thông tin công nghệ</a
+            >
+            <a href="#" class="text-3xl font-bold hover:text-gray-700 pb-4"
+              >Tổng Giám đốc HP Đông Nam Á: Người biết dùng AI sẽ thay thế bạn,
+              không phải AI tự thay thế con người</a
+            >
+            <p href="#" class="text-sm pb-8">
+              By
+              <a href="#" class="font-semibold hover:text-gray-800">Lê Khải</a>,
+              Đăng vào ngày 26 tháng 11 năm 2024
+            </p>
+            <p class="pb-3">
+              Ngày 14/11 vừa qua tại Thành phố Hồ Chí Minh, chúng tôi đã có dịp
+              gặp gỡ và trò chuyện cùng ông Kong Meng, Tổng Giám đốc HP Đông Nam
+              Á và ông Minh Đức, Tổng Giám đốc HP tại Việt Nam. Tại đây, 2 vị
+              lãnh đạo của tập đoàn công nghệ này đã chia sẻ về tầm nhìn của họ
+              với AI, các giải pháp cũng như chiến lược tại thị trường Việt Nam.
+            </p>
+            <h1 class="text-2xl font-bold pb-3">
+              AI: Xu hướng tất yếu và “on-device” là điều cần có
+            </h1>
+            <p class="pb-3">
+              HP nhìn nhận AI là xu hướng không thể tránh khỏi và là động lực
+              chính thúc đẩy ngành công nghệ trong thập kỷ tới.
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://genk.mediacdn.vn/139269124445442048/2024/11/25/r60149-17325113555411815262725-1732519342657-1732519342845393324934.jpg"
+                alt="Tổng Giám đốc HP Đông Nam Á: Người biết dùng AI sẽ thay thế bạn, không phải AI tự thay thế con người"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <figcaption
+                style="font-size: 0.9rem; color: gray; margin-top: 4px"
+              >
+                Ông Kong Meng (trái) đang chia sẻ về xu hướng AI những năm gần
+                đây.
+              </figcaption>
+            </figure>
+            <p class="pb-3">
+              Ông Kong Meng chia sẻ:
+              <i>
+                “AI tạo sinh (Generative AI) đã thúc đẩy sự tăng trưởng vượt bậc
+                của thị trường PC. Chúng tôi tin rằng AI on-device mang lại ba
+                lợi thế: tốc độ xử lý nhanh hơn, bảo mật cao hơn vì dữ liệu
+                không rời khỏi thiết bị, và đặc biệt là chi phí hợp lý hơn so
+                với các giải pháp dựa trên đám mây.”</i
+              >
+              Cụ thể, AI on-device đảm bảo rằng thông tin cá nhân và dữ liệu
+              quan trọng của người dùng không bị gửi lên mạng, giảm thiểu rủi ro
+              bảo mật. Đây cũng là một phần chiến lược dài hạn của HP để đưa AI
+              tiếp cận gần hơn với từng cá nhân và tổ chức.
+            </p>
+            <h1 class="text-2xl font-bold pb-3">
+              AI đã len lỏi vào mọi giải pháp của HP, thậm chí in ấn giờ cũng có
+              AI
+            </h1>
+            <p class="pb-3">
+              HP không chỉ chú trọng vào hiệu năng mà còn tích hợp AI vào mọi
+              sản phẩm, từ bảo mật đến in ấn. Ông Minh Đức tại đây cũng nhấn
+              mạnh:<i
+                >“Trước khi AI bùng nổ, HP đã áp dụng công nghệ này trong các
+                giải pháp an ninh, ví dụ như Sure Sense. Phần mềm này không chỉ
+                dựa vào danh sách virus có sẵn mà học cách hacker hoạt động để
+                tự động ngăn chặn các mối đe dọa.”</i
+              >
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://genk.mediacdn.vn/139269124445442048/2024/11/25/r60095-17325113727491789932304-1732519344306-17325193445141831834116.jpg"
+                alt="Tổng Giám đốc HP Đông Nam Á: Người biết dùng AI sẽ thay thế bạn, không phải AI tự thay thế con người"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+              <figcaption
+                style="font-size: 0.9rem; color: gray; margin-top: 4px"
+              >
+                Ông Minh Đức, Tổng Giám đốc HP tại Việt Nam chia sẻ tại buổi
+                phỏng vấn.
+              </figcaption>
+            </figure>
+            <p class="pb-3">
+              Đồng thời, ông cho biết giải pháp Wolf Security mang đến lớp bảo
+              vệ toàn diện hơn với tính năng cách ly các mối đe dọa trong môi
+              trường ảo hóa, cùng khả năng khôi phục BIOS từ chip phần cứng độc
+              quyền.<i
+                >"Từ khi ra mắt, Wolf Security đã xử lý hơn 40 tỷ tệp mà không
+                ghi nhận bất kỳ vi phạm bảo mật nào."</i
+              >
+            </p>
+            <p class="pb-3">
+              Không dừng lại ở bảo mật, HP còn ứng dụng AI để tối ưu hóa quá
+              trình in ấn.
+              <i
+                >“AI giúp phân tích và đưa ra tùy chọn in phù hợp nhất, giúp
+                người dùng tránh lãng phí giấy, thời gian và công sức. Đặc biệt
+                với ngành kế toán, AI giải phóng những thao tác thủ công phức
+                tạp, từ việc căn chỉnh bảng tính Excel đến in ra các tài liệu rõ
+                ràng và hiệu quả,”</i
+              >
+              ông Minh Đức chia sẻ.
+            </p>
+            <p class="pb-3">
+              Những cải tiến này không chỉ tiết kiệm tài nguyên mà còn giảm bớt
+              áp lực công việc cho người dùng, biến các tác vụ hàng ngày trở nên
+              đơn giản và thuận tiện hơn.
+            </p>
+            <h1 class="text-2xl font-bold pb-3">
+              “AI không lấy đi công việc của bạn, nhưng người biết dùng AI sẽ
+              thay thế bạn”
+            </h1>
+            <p class="pb-3">
+              Một trong những thông điệp mạnh mẽ nhất từ lãnh đạo HP chính là sự
+              chuyển đổi về cách làm việc trong kỷ nguyên AI. Ông Minh Đức khẳng
+              định:
+              <i
+                >“Nếu bạn không biết tận dụng AI, bạn sẽ bị thay thế bởi những
+                người biết dùng AI. Điều này không chỉ đúng với nhân viên văn
+                phòng mà còn trong nhiều ngành nghề khác.”
+              </i>
+            </p>
+            <figure style="text-align: center; margin: 0">
+              <img
+                src="https://genk.mediacdn.vn/139269124445442048/2024/11/25/943e99ee-aded-403c-a6d2-88ddb57cb08e-1732511286977967505924-1732519346117-17325193462841931372511.png"
+                alt="Tổng Giám đốc HP Đông Nam Á: Người biết dùng AI sẽ thay thế bạn, không phải AI tự thay thế con người"
+                style="
+                  display: block;
+                  margin: 0 auto;
+                  max-width: 100%;
+                  height: auto;
+                "
+              />
+            </figure>
+            <p class="pb-3">
+              Ông Kong Meng bổ sung:
+              <i
+                >“AI không chỉ giúp tăng năng suất mà còn thay đổi cách chúng ta
+                làm việc. Ví dụ, với Microsoft Copilot, bạn có thể tham gia một
+                cuộc họp trong khi AI ghi chú và tóm tắt nội dung từ một cuộc
+                họp khác cùng lúc. Đây chính là bước đột phá trong hiệu quả lao
+                động.”
+              </i>
+            </p>
+            <h1 class="text-2xl font-bold pb-3">
+              AI có nguy hiểm cho con người không?
+            </h1>
+            <p class="pb-3">
+              Trước lo ngại rằng AI có thể trở thành mối đe dọa, ông Kong Meng
+              cho rằng vấn đề không nằm ở công nghệ mà ở cách con người sử dụng
+              nó.
+              <i
+                >“Mọi công nghệ đều có hai mặt, giống như dao có thể dùng để cắt
+                thức ăn hoặc gây hại. Điều quan trọng là chúng ta cần quy định,
+                luật pháp và chuẩn mực xã hội để kiểm soát những mặt tiêu cực,”
+              </i>
+              ông nói.
+            </p>
+            <p class="pb-3">
+              Ông Minh Đức cũng nhấn mạnh:
+              <i
+                >“AI không phải kẻ thù mà là công cụ giúp con người làm việc
+                thông minh hơn. Nếu biết cách sử dụng, bạn sẽ thấy nó là trợ thủ
+                đắc lực, không phải mối nguy hại.”
+              </i>
+            </p>
+            <h1 class="text-2xl font-bold pb-3">
+              Chiến lược tại Việt Nam: Đầu tư mạnh cho thị trường trẻ
+            </h1>
+            <p class="pb-3">
+              HP xác định Việt Nam là một trong những thị trường trọng điểm tại
+              Đông Nam Á. Theo ông Kong Meng, Việt Nam có dân số trẻ và năng
+              động, là mảnh đất màu mỡ để phát triển các sản phẩm AI.
+              <i
+                >“Chúng tôi đã hợp tác với Thế Giới Di Động để mở flagship store
+                tại TP.HCM, mang lại trải nghiệm thực tế cho khách hàng trẻ.
+                Trong năm 2025, nhân dịp kỷ niệm 30 năm HP tại Việt Nam, chúng
+                tôi sẽ ra mắt loạt sản phẩm AI PC và tổ chức nhiều sự kiện lớn
+                để khẳng định cam kết lâu dài tại đây,”
+              </i>
+              ông chia sẻ.
+            </p>
+            <p class="pb-3">
+              Ông Minh Đức bổ sung rằng các sản phẩm mới của HP sẽ được đặt tên
+              lại, như dòng OmniBook và ProBook, với logo AI nổi bật, nhấn mạnh
+              sự đổi mới và hướng đi của công ty trong tương lai.
+            </p>
+          </div>
+        </article>
+        <div
+          class="w-full flex flex-col text-center md:text-left md:flex-row shadow bg-white mt-10 mb-10 p-6"
+        >
+          <div
+            class="w-full md:w-1/5 flex justify-center md:justify-start pb-4"
+          >
+            <img
+              src="https://source.unsplash.com/collection/1346951/150x150?sig=1"
+              class="rounded-full shadow h-32 w-32"
+            />
+          </div>
+          <div class="flex-1 flex flex-col justify-center md:justify-start">
+            <p class="font-semibold text-2xl">Lê Khải</p>
+            <p class="pt-2">
+              Cuộc sống liên tục thay đổi, công nghệ không ngừng chuyển mình. Lê
+              Khải tự hào là thành viên của EasyTech và cập nhật tin tức công
+              nghệ cho mọi người.
+            </p>
+            <div
+              class="flex items-center justify-center md:justify-start text-2xl no-underline text-blue-800 pt-4"
+            >
+              <a class="" href="#">
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a class="pl-4" href="#">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a class="pl-4" href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a class="pl-4" href="#">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sidebar Section -->
+      <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
+        <div class="w-full bg-white shadow flex flex-col my-4 p-6">
+          <p class="text-xl font-semibold pb-5">Về chúng tôi</p>
+          <p class="pb-2">
+            EasyTech là blog công nghệ chuyên cung cấp đánh giá công tâm, thông
+            tin hữu ích, giúp người dùng dễ dàng tiếp cận và hiểu rõ hơn về sản
+            phẩm công nghệ.
+          </p>
+          <a
+            href="#"
+            class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4"
+          >
+            Biết thêm về chúng tôi
+          </a>
+        </div>
+
+        <div class="w-full bg-white shadow flex flex-col my-4 p-6">
+          <p class="text-xl font-semibold pb-5">Instagram</p>
+          <a
+            href="#"
+            class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-6"
+          >
+            <i class="fab fa-instagram mr-2"></i> Follow EasyTech
+          </a>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="w-full border-t bg-white pb-12">
+      <div class="w-full container mx-auto flex flex-col items-center">
+        <div
+          class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6"
+        >
+          <a href="#" class="uppercase px-3">About Us</a>
+          <a href="#" class="uppercase px-3">Privacy Policy</a>
+          <a href="#" class="uppercase px-3">Terms & Conditions</a>
+          <a href="#" class="uppercase px-3">Contact Us</a>
+        </div>
+        <div class="uppercase pb-6">&copy; myblog.com</div>
+      </div>
+    </footer>
+
+    <script>
+      function getCarouselData() {
+        return {
+          currentIndex: 0,
+          images: [
+            "https://source.unsplash.com/collection/1346951/800x800?sig=1",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=2",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=3",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=4",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=5",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=6",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=7",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=8",
+            "https://source.unsplash.com/collection/1346951/800x800?sig=9",
+          ],
+          increment() {
+            this.currentIndex =
+              this.currentIndex === this.images.length - 6
+                ? 0
+                : this.currentIndex + 1;
+          },
+          decrement() {
+            this.currentIndex =
+              this.currentIndex === this.images.length - 6
+                ? 0
+                : this.currentIndex - 1;
+          },
+        };
+      }
+    </script>
+  </body>
+</html>
